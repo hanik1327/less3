@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+{% extends "header.html" %}
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="text-center m-4">{{ title }}</h3>
+
+        <body>
+            <form action="addtodo" method="POST" style="width: 22rem; margin: 0 auto;">
+                {% csrf_token %}
+                <div class="form-outline mb-4">
+                    <label class="form-label" for="Todotext" style="margin-left: 0px;">Заголовок</label>
+                    <input type="text" id="Todotext" name="Todotext" class="form-control" required="">
+                </div>
+                <button type="submit" value="Login" class="btn btn-primary btn-block mb-4" style="display: block; margin: 0 auto;">Создать</button>
+            </form>
+        </body>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+{% endblock %}

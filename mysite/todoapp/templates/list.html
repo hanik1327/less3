@@ -1,0 +1,38 @@
+{% extends 'header.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-lg-2">
+    </div>
+    <div class="col-lg-8">
+        <h3 class="text-center">{{ title }}</h3>
+        <table class="table ads_table">
+            <thead>
+                <tr class="text-center">
+                    <th scope="col">ID</th>
+                    <th scope="col">Заголовок</th>
+                    <th scope="col">Статус</th>
+                    <th scope="col">Действие</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c_todo in todoList %}
+                <tr>
+                    <td class="text-center">{{ c_todo.Todoid }}</td>
+                    <td>{{ c_todo.Todotext }}</td>
+                    <td class="text-center">{% if c_todo.Tododone %} Выполнена {% else %} В процессе {% endif %}</td>
+                    <td class="text-center">
+                        <a type="button" class="btn btn-sm btn-outline-primary" href="/todo/todoedit/{{ c_todo.Todoid }}">Редактировать</a>
+                        <a type="button" class="btn btn-sm btn-outline-danger" href="/todo/tododel/{{ c_todo.Todoid }}">Удалить</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-2">
+    </div>
+</div>
+
+{% endblock %}
